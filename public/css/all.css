@@ -1,8 +1,131 @@
 * {
   padding: 0;
-  margin: 0px; }
+  margin: 0; }
 
-p {
-  color: #f00; }
+#app.wrapper {
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 15px;
+  margin: auto;
+  color: #666;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  #app.wrapper .select-box {
+    padding: 25px 0;
+    text-align: center; }
+    #app.wrapper .select-box .select-item {
+      width: 180px;
+      height: 48px;
+      margin: 0 5px;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #69b3af;
+      border: 2px solid #69b3af;
+      border-radius: 24px;
+      text-align: center;
+      display: inline-block; }
+      #app.wrapper .select-box .select-item:focus {
+        outline: none; }
+  #app.wrapper .main .clinic-box {
+    padding-top: 30px;
+    border-top: 1px solid #ccc; }
+    #app.wrapper .main .clinic-box + .clinic-box {
+      margin-top: 30px; }
+    #app.wrapper .main .clinic-box .title {
+      padding-bottom: 30px;
+      font-size: 16px; }
+      #app.wrapper .main .clinic-box .title .highlight {
+        color: #69b3af; }
+    #app.wrapper .main .clinic-box .clinic-item {
+      font-size: 0; }
+      #app.wrapper .main .clinic-box .clinic-item:after {
+        content: '';
+        display: block;
+        clear: both; }
+      #app.wrapper .main .clinic-box .clinic-item + .clinic-item {
+        margin-top: 30px; }
+      #app.wrapper .main .clinic-box .clinic-item .pic-container {
+        width: 50%;
+        padding-right: 30px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        float: left; }
+        #app.wrapper .main .clinic-box .clinic-item .pic-container .pic {
+          width: 100%;
+          padding-bottom: 61.5%;
+          border-radius: 15px;
+          background-color: #ccc;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat; }
+        #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-show {
+          width: 100%; }
+        #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box {
+          width: 100%;
+          margin: 8px 0; }
+          #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box .pic-item {
+            width: calc(20% - 4px);
+            display: inline-block;
+            opacity: 0.5;
+            cursor: pointer;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s; }
+            #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box .pic-item + .pic-item {
+              margin-left: 5px; }
+            #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box .pic-item:hover {
+              opacity: 0.7; }
+          #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box .active {
+            opacity: 1; }
+            #app.wrapper .main .clinic-box .clinic-item .pic-container .pic-box .active:hover {
+              opacity: 1; }
+      #app.wrapper .main .clinic-box .clinic-item .information-container {
+        width: 50%;
+        padding-top: 30px;
+        float: left; }
+        #app.wrapper .main .clinic-box .clinic-item .information-container .clinic-name {
+          font-size: 32px;
+          color: #69b3af; }
+        #app.wrapper .main .clinic-box .clinic-item .information-container .sub-title {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: bold; }
+        #app.wrapper .main .clinic-box .clinic-item .information-container .info {
+          margin-top: 5px;
+          font-size: 16px;
+          color: #666;
+          text-decoration: none; }
+  @media only screen and (max-width: 768px) {
+    #app.wrapper .select-box {
+      padding: 15px 0; }
+      #app.wrapper .select-box .select-item {
+        width: 120px;
+        margin: 0 5px;
+        padding: 5px 0;
+        font-size: 16px;
+        border-radius: 24px; }
+    #app.wrapper .main .clinic-box + .clinic-box {
+      margin-top: 15px; }
+    #app.wrapper .main .clinic-box .title {
+      padding: 15px 0;
+      font-size: 14px; }
+    #app.wrapper .main .clinic-box .clinic-item + .clinic-item {
+      margin-top: 20px; }
+    #app.wrapper .main .clinic-box .clinic-item .pic-container {
+      width: 100%;
+      padding-right: 0px; }
+      #app.wrapper .main .clinic-box .clinic-item .pic-container .pic {
+        border-radius: 10px; }
+    #app.wrapper .main .clinic-box .clinic-item .information-container {
+      width: 100%;
+      padding-top: 10px; }
+      #app.wrapper .main .clinic-box .clinic-item .information-container .clinic-name {
+        font-size: 24px; }
+      #app.wrapper .main .clinic-box .clinic-item .information-container .sub-title {
+        margin-top: 10px;
+        font-size: 14px; }
+      #app.wrapper .main .clinic-box .clinic-item .information-container .info {
+        margin-top: 2px;
+        font-size: 14px; } }
 
 /*# sourceMappingURL=all.css.map */
