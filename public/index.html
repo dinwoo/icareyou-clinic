@@ -20,6 +20,29 @@
         </select>
       </div>
       <div class="main">
+        <div class="clinic-box" v-if="showNear">
+          <div class="title">目前距離您最近的診所為：<span class="highlight">{{nearClinic.name}}</span></div>
+          <div class="clinic-item">
+            <div class="pic-container">
+              <div class="pic-show">
+                <div class="pic" :style="`background-image:url('${nearClinic.imgList[nearClinic.imgIndex]}')`"></div>
+              </div>
+              <div class="pic-box">
+                <div class="pic-item" v-for="(img, index) in nearClinic.imgList" @click="nearClinic.imgIndex = index" :class="{ active: index == nearClinic.imgIndex }">
+                  <div class="pic" :style="`background-image:url('${img}')`"></div>
+                </div>
+              </div>
+            </div>
+            <div class="information-container">
+              <div class="clinic-name">{{ nearClinic.name }}</div>
+              <div class="sub-title">營業時間：</div>
+              <div class="info" v-for="time in nearClinic.BusinessHours">{{ time }}</div>
+              <div class="sub-title">聯絡電話：</div>
+              <div class="info">{{ nearClinic.phone }}</div>
+              <div class="sub-title">服務地址：</div><a class="info" :href="`https://www.google.com.tw/maps/place/${nearClinic.address}`" target="_blank">{{ nearClinic.address }}</a>
+            </div>
+          </div>
+        </div>
         <div class="clinic-box">
           <div class="title" v-if="areaSelected != '' || doctorSelected != ''">您選擇的<span class="highlight">{{ areaSelected }}</span><span class="highlight" v-if="areaSelected != '' &amp;&amp; doctorSelected != ''">、</span><span class="highlight" v-if="doctorSelected != ''">{{ doctorSelected }}醫師</span>的診所如下：</div>
           <div class="clinic-item" v-for="clinic in clinicList">

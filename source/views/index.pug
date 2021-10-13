@@ -8,7 +8,7 @@ extend ../Layout.pug
 
 block body
   #app.wrapper
-    //- clinic-item(:clinic-data="clinicData")
+    //- clinic-item(:clinic-test="clinic" v-for="clinic in clinicList")
     .select-box
       select.select-item(v-model="areaSelected")
         option(value="") 選擇區域
@@ -17,31 +17,34 @@ block body
         option(value="") 選擇醫生
         option(v-for="doctor in doctorList", :value="doctor") {{ doctor }}
     .main
-      //- .clinic-box
+      .clinic-box(v-if="showNear")
         .title
           | 目前距離您最近的診所為：
-          span.highlight 忠孝診所
+          span.highlight {{nearClinic.name}}
         .clinic-item
           .pic-container
             .pic-show
-              .pic
+              .pic(
+                :style="`background-image:url('${nearClinic.imgList[nearClinic.imgIndex]}')`"
+              )
             .pic-box
-              .pic-item.active
-                .pic
-              .pic-item
-                .pic
-              .pic-item
-                .pic
-              .pic-item
-                .pic
+              .pic-item(
+                v-for="(img, index) in nearClinic.imgList",
+                @click="nearClinic.imgIndex = index",
+                :class="{ active: index == nearClinic.imgIndex }"
+              )
+                .pic(:style="`background-image:url('${img}')`")
           .information-container
-            .clinic-name 診所
+            .clinic-name {{ nearClinic.name }}
             .sub-title 營業時間：
-            .info 週一～五 9:00-21:00 週六 9:30-18:30
+            .info(v-for="time in nearClinic.BusinessHours") {{ time }}
             .sub-title 聯絡電話：
-            .info 0987654321
+            .info {{ nearClinic.phone }}
             .sub-title 服務地址：
-            .info XXXXXXXXXX
+            a.info(
+              :href="`https://www.google.com.tw/maps/place/${nearClinic.address}`",
+              target="_blank"
+            ) {{ nearClinic.address }}
       .clinic-box
         .title(v-if="areaSelected != '' || doctorSelected != ''")
           | 您選擇的

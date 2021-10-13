@@ -1,7 +1,6 @@
 var gulp = require("gulp");
 var $ = require("gulp-load-plugins")();
 var autoprefixer = require("autoprefixer");
-var mainBowerFiles = require("main-bower-files");
 var browserSync = require("browser-sync").create();
 var minimist = require("minimist");
 
@@ -100,22 +99,6 @@ gulp.task("babel", () =>
     .pipe(browserSync.stream())
 );
 
-gulp.task("bower", function () {
-  return gulp
-    .src(
-      mainBowerFiles({
-        overrides: {
-          vue: {
-            // 套件名稱
-            main: "dist/vue.js", // 取用的資料夾路徑
-          },
-        },
-      })
-    )
-    .pipe(gulp.dest("./.tmp/vendors"));
-  cb(err);
-});
-
 gulp.task("vendorJs", function () {
   return gulp
     .src("./.tmp/vendors/**/*.js")
@@ -160,7 +143,6 @@ gulp.task(
   "build",
   gulp.series(
     "clean",
-    "bower",
     "vendorJs",
     gulp.parallel("pug", "sass", "babel", "image-min")
   )
@@ -170,7 +152,6 @@ gulp.task(
   "default",
   gulp.series(
     "clean",
-    "bower",
     "vendorJs",
     gulp.parallel("pug", "sass", "babel", "image-min"),
     function (done) {
