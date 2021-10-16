@@ -7,7 +7,7 @@ extend ../Layout.pug
 //-   include ../components/Footer.pug
 
 block body
-  #app.wrapper
+  #clinic-app.wrapper
     //- clinic-item(:clinic-test="clinic" v-for="clinic in clinicList")
     .select-box
       select.select-item(v-model="areaSelected")
@@ -45,6 +45,7 @@ block body
               :href="`https://www.google.com.tw/maps/place/${nearClinic.address}`",
               target="_blank"
             ) {{ nearClinic.address }}
+              img.google-map-icon(src="https://www.icareyou.com.tw/wp-content/uploads/2021/10/google-map-icon.jpeg")
       .clinic-box
         .title(v-if="areaSelected != '' || doctorSelected != ''")
           | 您選擇的
@@ -76,6 +77,7 @@ block body
               :href="`https://www.google.com.tw/maps/place/${clinic.address}`",
               target="_blank"
             ) {{ clinic.address }}
+              img.google-map-icon(src="https://www.icareyou.com.tw/wp-content/uploads/2021/10/google-map-icon.jpeg")
 
   
 
