@@ -17,15 +17,25 @@
       width: 180px;
       height: 48px;
       margin: 0 5px;
-      font-size: 20px;
-      line-height: 1.5;
-      color: #69b3af;
+      padding: 0;
       border: 2px solid #69b3af;
       border-radius: 24px;
-      text-align: center;
-      display: inline-block; }
-      #clinic-app.wrapper .select-box .select-item:focus {
-        outline: none; }
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      display: inline-block;
+      overflow: hidden; }
+      #clinic-app.wrapper .select-box .select-item select {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: center;
+        color: #69b3af;
+        border: none; }
+        #clinic-app.wrapper .select-box .select-item select:focus {
+          outline: none; }
   #clinic-app.wrapper .main .clinic-box {
     padding-top: 30px;
     border-top: 1px solid #ccc; }
@@ -103,10 +113,10 @@
       padding: 15px 0; }
       #clinic-app.wrapper .select-box .select-item {
         width: 120px;
-        margin: 0 5px;
-        padding: 5px 0;
-        font-size: 16px;
-        border-radius: 24px; }
+        height: 40px;
+        border-radius: 20px; }
+        #clinic-app.wrapper .select-box .select-item select {
+          font-size: 16px; }
     #clinic-app.wrapper .main .clinic-box + .clinic-box {
       margin-top: 15px; }
     #clinic-app.wrapper .main .clinic-box .title {

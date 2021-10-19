@@ -10,12 +10,14 @@ block body
   #clinic-app.wrapper
     //- clinic-item(:clinic-test="clinic" v-for="clinic in clinicList")
     .select-box
-      select.select-item(v-model="areaSelected")
-        option(value="") 選擇區域
-        option(v-for="area in areaList", :value="area") {{ area }}
-      select.select-item(v-model="doctorSelected")
-        option(value="") 選擇醫生
-        option(v-for="doctor in doctorList", :value="doctor") {{ doctor }}
+      .select-item
+        select(v-model="areaSelected")
+          option(value="") 選擇區域
+          option(v-for="area in areaList", :value="area") {{ area }}
+      .select-item
+        select(v-model="doctorSelected")
+          option(value="") 選擇醫生
+          option(v-for="doctor in doctorList", :value="doctor") {{ doctor }}
     .main
       .clinic-box(v-if="showNear")
         .title
